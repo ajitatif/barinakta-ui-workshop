@@ -4,7 +4,7 @@
   "description": "A search app for our friends in shelter, the İstanbul JUG Workshop starter. Based on Angular's Quickstart",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
+    "e2e": "tsc && gulp && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
     "lint": "tslint ./app/**/*.ts -t verbose",
     "lite": "lite-server",
     "pree2e": "webdriver-manager update",
@@ -51,7 +51,15 @@
     "rimraf": "^2.5.4",
 
     "@types/node": "^6.0.46",
-    "@types/jasmine": "^2.5.36"
+    "@types/jasmine": "^2.5.36",
+
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-header": "^1.8.7",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4"
   },
   "repository": {}
 }
