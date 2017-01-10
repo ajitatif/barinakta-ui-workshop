@@ -27,6 +27,12 @@
                                             <th>Telefon</th>
                                         </tr>
                                     </thead>
+                                    <tbody>
+                                        <tr *ngFor="let shelter of shelters">
+                                            <td>{{ shelter.name }}</td>
+                                            <td>{{ shelter.phone }}</td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

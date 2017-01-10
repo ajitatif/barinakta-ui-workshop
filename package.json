@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A search app for our friends in shelter, the İstanbul JUG Workshop starter. Based on Angular's Quickstart",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "tsc && gulp && concurrently \"tsc -w\" \"lite-server\" ",
     "e2e": "tsc && gulp && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
     "lint": "tslint ./app/**/*.ts -t verbose",
     "lite": "lite-server",
@@ -15,7 +15,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "Unlicense",
   "dependencies": {
     "@angular/common": "~2.4.0",
     "@angular/compiler": "~2.4.0",
