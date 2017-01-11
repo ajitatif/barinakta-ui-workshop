@@ -1,0 +1,14 @@
+<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+    <thead>
+    <tr>
+        <th>Barınak</th>
+        <th>Telefon</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let shelter of shelters">
+        <td><a href="#" (click)="selectShelter(shelter)">{{ shelter.name }}</a></td>
+        <td>{{ shelter.phone }}</td>
+    </tr>
+    </tbody>
+</table>

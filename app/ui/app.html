@@ -20,20 +20,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">Barınaklar</div>
                             <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>Barınak</th>
-                                            <th>Telefon</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let shelter of shelters">
-                                            <td>{{ shelter.name }}</td>
-                                            <td>{{ shelter.phone }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <shelter-list [shelters]="shelters" (onShelterSelected)="editShelter($event)"></shelter-list>
                             </div>
                         </div>
                     </div>
