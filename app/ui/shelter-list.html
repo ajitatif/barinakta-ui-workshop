@@ -7,8 +7,8 @@
     </thead>
     <tbody>
     <tr *ngFor="let shelter of shelters">
-        <td><a href="#" (click)="selectShelter(shelter)">{{ shelter.name }}</a></td>
-        <td>{{ shelter.phone }}</td>
+        <td><a href="#" (click)="selectShelter(shelter)">{{ shelter.name | uppercase }}</a></td>
+        <td>{{ shelter.phone | phonenumber }}</td>
     </tr>
     </tbody>
 </table>
