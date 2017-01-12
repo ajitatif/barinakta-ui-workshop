@@ -1,15 +1,19 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+import { ModalModule } from 'ng2-bootstrap';
 
 import { NavbarModule } from './navbar.module';
 
 import { AppComponent }  from './app.component';
 import { ShelterListComponent }  from './shelter-list.component';
+import { ShelterFormComponent }  from './shelter-form.component';
 import { PhoneNumberPipe } from './pipe/phone-number.pipe';
 
 @NgModule({
-  imports:      [ BrowserModule, NavbarModule ],
-  declarations: [ AppComponent, ShelterListComponent, PhoneNumberPipe ],
+  imports:      [ BrowserModule, FormsModule, ModalModule.forRoot(), NavbarModule ],
+  declarations: [ AppComponent, ShelterListComponent, ShelterFormComponent, PhoneNumberPipe ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
