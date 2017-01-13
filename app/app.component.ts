@@ -5,7 +5,8 @@ import { Shelter } from './shelter.model';
 
 @Component({
   selector: 'barinakta-app',
-  templateUrl: 'app/ui/app.html'
+  moduleId: module.id,
+  templateUrl: 'ui/app.html'
 })
 export class AppComponent  {
 

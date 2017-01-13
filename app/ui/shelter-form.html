@@ -4,24 +4,25 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" (click)="closeDialog()" aria-hidden="true">×</button>
-                <h4 class="modal-title" id="shelterModalLabel">Barınak Bilgileri</h4>
+                <h4 class="modal-title" id="shelterModalLabel" i18n="Shelter Create/Edit Form Header">Barınak Bilgileri</h4>
             </div>
             <form #shelterForm="ngForm" (ngSubmit)="saveShelter()" role="form">
                 <div class="modal-body">
                     <div class="form-group" [class.has-error]="name.dirty && !name.valid">
-                        <label class="control-label" for="shelterName">Barınak Adı</label>
-                        <input name="name" class="form-control" placeholder="ör: Sultanbeyli" [(ngModel)]="shelter.name"
+                        <label class="control-label" for="shelterName" i18n="Shelter Name">Barınak Adı</label>
+                        <input name="name" class="form-control" i18n-placeholder="An example shelter name" placeholder="ör: Sultanbeyli" [(ngModel)]="shelter.name"
                                id="shelterName" #name="ngModel" required/>
                     </div>
                     <div class="form-group" [class.has-error]="phone.dirty && !phone.valid">
-                        <label class="control-label" for="shelterPhone">Barınak İletişim Telefonu</label>
-                        <input name="phone" class="form-control" placeholder="ör: 0 (216) 345 67 89" [(ngModel)]="shelter.phone"
+                        <label class="control-label" for="shelterPhone" i18n="Shelter contact phone">Barınak İletişim Telefonu</label>
+                        <input name="phone" class="form-control" i18n-placeholder="An example phone number|The phone format must match the original text"
+                               placeholder="ör: 0 (216) 345 67 89" [(ngModel)]="shelter.phone"
                                id="shelterPhone" #phone="ngModel" required pattern="0 \(\d{3}\) \d{3} \d{2} \d{2}"/>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" (click)="closeDialog()">Kapat</button>
-                    <button type="submit" class="btn btn-primary" [disabled]="!shelterForm.valid">Kaydet</button>
+                    <button type="button" class="btn btn-default" (click)="closeDialog()" i18n="Close(v)">Kapat</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!shelterForm.valid" i18n="Save">Kaydet</button>
                 </div>
             </form>
         </div>

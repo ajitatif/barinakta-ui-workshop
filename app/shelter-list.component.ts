@@ -3,7 +3,8 @@ import { Shelter } from './shelter.model';
 
 @Component({
     selector: 'shelter-list',
-    templateUrl: 'app/ui/shelter-list.html'
+    moduleId: module.id,
+    templateUrl: 'ui/shelter-list.html'
 })
 export class ShelterListComponent {
 

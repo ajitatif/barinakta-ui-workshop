@@ -1,12 +1,13 @@
 import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 
-import { ModalComponent } from 'ng2-bootstrap';
+import { ModalDirective } from 'ng2-bootstrap';
 
 import { Shelter } from './shelter.model';
 
 @Component({
     selector: 'shelter-form',
-    templateUrl: 'app/ui/shelter-form.html'
+    moduleId: module.id,
+    templateUrl: 'ui/shelter-form.html'
 })
 export class ShelterFormComponent {
 

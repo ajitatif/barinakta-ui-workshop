@@ -26,6 +26,17 @@
 
     <script src="systemjs.config.js"></script>
     <script>
+      var lang = navigator.language || navigator.userLanguage;
+
+      document.locale = lang;
+
+      // Map to the text plugin
+      System.config({
+        map: {
+          text: 'js/systemjs-text-plugin.js'
+        }
+      });
+
       System.import('app').catch(function(err){ console.error(err); });
     </script>
   </head>
