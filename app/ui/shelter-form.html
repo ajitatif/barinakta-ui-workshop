@@ -1,25 +1,27 @@
 <div bsModal #modalDialog="bs-modal" class="modal fade" id="shelterModal" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+     aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" (onHide)="shelterForm.reset()">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" (click)="modalDialog.hide()" aria-hidden="true">×</button>
+                <button type="button" class="close" (click)="closeDialog()" aria-hidden="true">×</button>
                 <h4 class="modal-title" id="shelterModalLabel">Barınak Bilgileri</h4>
             </div>
             <form #shelterForm="ngForm" (ngSubmit)="saveShelter()" role="form">
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label>Barınak Adı</label><input name="name" placeholder="ör: Sultanbeyli"
-                                                         [(ngModel)]="shelter.name"/>
+                    <div class="form-group" [class.has-error]="name.dirty && !name.valid">
+                        <label class="control-label" for="shelterName">Barınak Adı</label>
+                        <input name="name" class="form-control" placeholder="ör: Sultanbeyli" [(ngModel)]="shelter.name"
+                               id="shelterName" #name="ngModel" required/>
                     </div>
-                    <div class="form-group">
-                        <label>Barınak İletişim Telefonu</label>
-                        <input name="phone" placeholder="ör: 0 (216) 345 67 89" [(ngModel)]="shelter.phone"/>
+                    <div class="form-group" [class.has-error]="phone.dirty && !phone.valid">
+                        <label class="control-label" for="shelterPhone">Barınak İletişim Telefonu</label>
+                        <input name="phone" class="form-control" placeholder="ör: 0 (216) 345 67 89" [(ngModel)]="shelter.phone"
+                               id="shelterPhone" #phone="ngModel" required pattern="0 \(\d{3}\) \d{3} \d{2} \d{2}"/>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" (click)="modalDialog.hide()">Kapat</button>
-                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                    <button type="button" class="btn btn-default" (click)="closeDialog()">Kapat</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!shelterForm.valid">Kaydet</button>
                 </div>
             </form>
         </div>

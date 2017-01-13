@@ -17,8 +17,10 @@ export class ShelterFormComponent {
 
     @ViewChild('modalDialog') modalDialog: any;
 
+    @ViewChild('shelterForm') shelterForm: any;
+
     editShelter(shelter: Shelter) {
-        this.shelter = shelter;
+        this.shelter = JSON.parse(JSON.stringify(shelter));
         this.modalDialog.show();
     }
 
@@ -29,6 +31,10 @@ export class ShelterFormComponent {
 
     saveShelter() { 
         this.onShelterSave.emit(this.shelter);
+        this.closeDialog();
+    }
+
+    closeDialog() {
         this.modalDialog.hide();
     }
 }
