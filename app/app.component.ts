@@ -1,5 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 
+import './rxjs-operators';
+
 import { ShelterService } from './service/shelter.service';
 
 import { ShelterFormComponent } from './shelter-form.component';
@@ -10,7 +12,7 @@ import { Shelter } from './shelter.model';
   moduleId: module.id,
   templateUrl: 'ui/app.html'
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit {
 
     shelters: Shelter[];
 
@@ -20,7 +22,11 @@ export class AppComponent implements AfterViewInit {
     }
 
     ngOnInit() {
-        this.shelters = this.shelterService.getShelters();
+        this.populateShelters();
+    }
+
+    private populateShelters() {
+        this.shelterService.getShelters().subscribe(shelterList => this.shelters = shelterList);
     }
 
     private editShelter(shelter: Shelter) {
@@ -28,6 +34,11 @@ export class AppComponent implements AfterViewInit {
     }
 
     private onShelterSave(shelter: Shelter) {
-        alert("Barınak Kaydedildi: " + shelter.name);
+        this.shelterService.updateShelter(shelter).then(updatedShelter => this.onShelterUpdated(updatedShelter), error => alert(error));
+    }
+
+    private onShelterUpdated(updatedShelter: Shelter) {
+        alert('Barınak Kaydedildi: ' + updatedShelter.name);
+        this.populateShelters();
     }
 }
