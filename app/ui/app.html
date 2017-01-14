@@ -11,7 +11,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">Barınaklar</div>
                         <div class="panel-body">
-                            <shelter-list [shelters]="shelters"
+                            <shelter-list *ngIf="!!shelters" [shelters]="shelters"
                                           (onShelterSelected)="editShelter($event)"></shelter-list>
                         </div>
                     </div>
@@ -19,6 +19,6 @@
             </div>
         </div>
 
-        <shelter-form (onShelterSave)="onShelterSave($event)" #shelterForm></shelter-form>
+        <shelter-form *ngIf="!!shelters" (onShelterSave)="onShelterSave($event)" #shelterForm></shelter-form>
     </div>
 </div>

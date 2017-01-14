@@ -6,6 +6,8 @@ import { ModalModule } from 'ng2-bootstrap';
 
 import { NavbarModule } from './navbar.module';
 
+import { ShelterService } from './service/shelter.service';
+
 import { AppComponent }  from './app.component';
 import { ShelterListComponent }  from './shelter-list.component';
 import { ShelterFormComponent }  from './shelter-form.component';
@@ -14,6 +16,7 @@ import { PhoneNumberPipe } from './pipe/phone-number.pipe';
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ModalModule.forRoot(), NavbarModule ],
   declarations: [ AppComponent, ShelterListComponent, ShelterFormComponent, PhoneNumberPipe ],
+  providers:    [ ShelterService ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
