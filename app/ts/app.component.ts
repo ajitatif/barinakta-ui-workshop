@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'barinakta-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  moduleId: module.id,
+  templateUrl: '../ui/app.html',
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  { }
